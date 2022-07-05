@@ -17,7 +17,7 @@ export class RegistroComponent implements OnInit {
 
   constructor(
     private _userService: UserService
-  ) { 
+  ) {
     this.title = "Registrate";
     this.user = new User(1,'','','ROLE_USER','','','','')
   }
@@ -29,7 +29,7 @@ export class RegistroComponent implements OnInit {
     this._userService.register(this.user).subscribe(
 
       response => {
-        
+
         if (response.status == "success") {
           this.status = response.status;
           this.mesage = response.mesage;
@@ -37,7 +37,8 @@ export class RegistroComponent implements OnInit {
           form.reset();
 
         }else{
-          console.log(response)
+          console.log(response.errors)
+          this.mesage = response.errors;
           this.status = "error"
         }
 

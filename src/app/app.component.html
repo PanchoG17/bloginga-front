@@ -6,7 +6,7 @@
       Bloginga!
     </a>
 
-    <div class="flex-avatar">
+    <div class="flex-avatar" *ngIf="identity">
       <div class="avatar_mobile">
         <img src="{{ url+'user/avatar/'+identity.image}}" class="avatar_nav" alt="avatar">
       </div>
